@@ -104,6 +104,8 @@ footer img {
 
 .current_page {
   text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 8px;
 }
 
 @media (max-width: 992px) {
