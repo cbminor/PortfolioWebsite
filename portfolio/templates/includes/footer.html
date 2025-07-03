@@ -1,0 +1,63 @@
+{% load static %}
+
+<footer class="mt-3 align-content-center">
+    <div class="row gy-0 p-4 w-100 mx-8">
+        <!-- <div class="col p-3 col-5 container">
+            <div>
+                <img src="{% static 'images/ChelsieMinorLogoBlack.png' %}" height="120">
+            </div>
+        </div> -->
+        <div class="col mx-6">
+            <div class="row text-center mx-auto">
+                <div class="col">
+                    <div>
+                        <h4>ABOUT</h4>
+                        <a href="#">Home</a>
+                        <br>
+                        <a href="#">About</a>
+                        <br>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h4>LEARN</h4>
+                    <a href="#">Portfolio</a>
+                    <br>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="col">
+                    <h4>CONNECT</h4>
+                    <div class="connect-link-group">
+                    {% with linkedin_url=settings.home.NavigationSettings.linkedin_url github_url=settings.home.NavigationSettings.github_url kaggle_url=settings.home.NavigationSettings.kaggle_url %}
+                    {% if linkedin_url or github_url or kaggle_url %}
+                        {% if github_url %}
+                            <a href="{{ github_url }}">
+                                <i class="bi bi-github" fill="black" width="32" height="32" viewBox="0 0 32 32">GitHub</i>
+                            </a>
+                            <br>
+                        {% endif %}
+                        {% if linkedin_url %}
+                            <a href="{{ linkedin_url }}">
+                                <i class="bi bi-linkedin">LinkedIn</i> 
+                            </a>
+                            <br>
+                        {% endif %}
+                        {% if kaggle_url %}
+                            <a href="{{ kaggle_url }}">
+                                <i class="bi bi-bar-chart-line-fill">Kaggle</i>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col p-3 col-4 container">
+            <div>
+                <img src="{% static 'images/ChelsieMinorLogoBlack.png' %}" height="120">
+            </div>
+        </div> -->
+    </div>
+
+</footer>

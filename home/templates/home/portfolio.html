@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css\portfolio.css' %}">
+{% endblock extra_css %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row gy-4 mt-2">
+            <!-- <div class="intro text-center">
+                <p>{{ page.intro }}</p>
+            </div> -->
+            {% for project_placement in page.project_list.all %}
+            <div class="col align-items-center">
+                <div class="card shadow-sm mx-auto">
+                    {% image project_placement.project.project_image  fill-345x230 %}
+                    <div class="p-2">
+                        <h3>{{ project_placement.project.project_title }}</h3>
+                        <p class="subtitle">{{ project_placement.project.project_summary }}</p>
+                        <div class="row">
+                            <div class="col text-center">
+                                {% if project_placement.project.project_link_type == "Kaggle" %}
+                                    <a href="{{ project_placement.project.project_link }}" class="connect-link mx-auto">
+                                        <i class="bi bi-code-square">Kaggle Link</i>
+                                    </a>
+                                {% elif project_placement.project.project_link_type == "GitHub" %}
+                                    <a href="{{ project_placement.project.project_link }}" class="connect-link">
+                                    <i class="bi bi-github">GitHub Link</i>
+                                    </a>
+                                {% elif project_placement.project.project_link_type == "Tableau" %}
+                                    <a href="{{ project_placement.project.project_link }}" class="connect-link">
+                                        <i class="bi bi-file-bar-graph">Tableau Link</i>
+                                    </a>
+                                {% else %}
+                                {% endif %}
+                            </div>
+                            <div class="col">
+                                <a href="{{ project_placement.project.blog_link.get_url }}" class="connect-link">
+                                    <i class="bi bi-link">Read More</i>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

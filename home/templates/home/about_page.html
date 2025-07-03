@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <article>
+        {% for block in page.about_text %}
+            {% if block.block_type == 'image_left' %}
+                <div class="row">
+                    <div class="col">
+                        {% image block.value.image_left width-400 %}
+                    </div>
+                    <div class="col">
+                        {{ block.value.text_right|richtext }}
+                    </div>
+                </div>
+            {% elif block.block_type == 'image_right' %}
+                <div class="row">
+                    <div class="col">
+                        {{ block.value.text_left|richtext }}
+                    </div>
+                    <div class="col">
+                        {% image block.value.image_right width-400 %}
+                    </div>
+                </div>
+            {% else %}
+                {% include_block block %}
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock content %}

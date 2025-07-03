@@ -1,0 +1,47 @@
+.article-row {
+    height: 23vw;
+    font-family: "Karla", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.content {
+    width: 70% !important;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.article-row h2 {
+    font-size: 2.5vw;
+}
+
+.article-row .btn-link {
+    font-size: 1.2rem;
+    color: black;
+    padding-left: 0px;
+}
+
+.article-row img {
+    height: 23vw;
+    width: auto;
+    aspect-ratio: auto 4/6;
+}
+
+.intro {
+    width: 80%;
+    margin: auto;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+}
+
+hr {
+    margin: 0rem;
+}
+
+a {
+    color: black;
+}

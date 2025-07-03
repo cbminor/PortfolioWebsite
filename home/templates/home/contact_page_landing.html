@@ -1,0 +1,12 @@
+{% extends "about/contact_page.html" %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-formpage{% endblock %}
+
+{% block email %}
+    <div class="thank-you container align-items-center">
+        <div>
+            {{ page.thank_you_text|richtext }}
+        </div>
+    </div>
+{% endblock email %}

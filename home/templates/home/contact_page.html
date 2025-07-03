@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load form_tags %}
+
+{% block body_class %}template-formpage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css\contact.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row pt-4">
+        <div class="col justify-content-center">
+            {% image page.contact_image max-400x450 %}
+        </div>
+        <div class="col mw-300">
+            {% block email %}
+            <div>
+                {{ page.intro|richtext }}
+                    <form class="form-group" method="POST">
+                        {% csrf_token %}
+                        {% for field in page.get_form_fields %}
+                            {% with field_name=field.clean_name %}
+                                <div class="{{ field.display|lower }}">
+                                    <label for="{{ field.clean_name }}">{{ field.label }}</label>
+                                    {{ form|get_field:field_name }}
+                                </div>
+                            {% endwith %}
+                        {% endfor %}
+                        <div class="justify-content-end d-md-flex submit-btn">
+                            <input type="submit" class="btn btn-dark">
+                        </div>
+                    </form>
+            </div>
+            {% endblock email %}
+        </div>
+    </div>
+{% endblock content %}

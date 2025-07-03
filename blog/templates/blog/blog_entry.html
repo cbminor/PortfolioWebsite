@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css\blog.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <article>
+        <h1 class="text-center">{{ page.article_title }}</h1>
+        <i class="text-center">{{ page.latest_revision_created_at }}</i>
+        {% for block in page.article_text %}
+            {% if block.block_type == 'image_left' %}
+                <div class="row">
+                    <div class="column">
+                        {% image block.value.image_left width-400 %}
+                    </div>
+                    <div class="column">
+                        {{ block.value.text_right|richtext }}
+                    </div>
+                </div>
+            {% elif block.block_type == 'image_right' %}
+                <div class="row">
+                    <div class="column">
+                        {{ block.value.text_left|richtext }}
+                    </div>
+                    <div class="column">
+                        {% image block.value.image_right width-400 %}
+                    </div>
+                </div>
+            {% else %}
+                {% include_block block %}
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock content %}

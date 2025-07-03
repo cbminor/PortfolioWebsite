@@ -1,0 +1,122 @@
+.content {
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Karla", sans-serif;
+}
+
+nav.navbar {
+  font-family: "Cinzel", serif;
+  font-size: 28px;
+  text-align: right;
+  margin-top: 20px;
+}
+
+nav.navbar a {
+  color: black;
+  font-style: normal;
+  text-decoration: none;
+  padding: 10px;
+}
+
+nav.navbar a:hover {
+  text-decoration: underline;
+}
+
+.column {
+  width: 50%;
+  display: flex;
+  float: left;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+article {
+  font-family: "Karla", sans-serif;
+}
+
+footer i {
+  color: black;
+  text-decoration: none;
+  font-style: normal;
+  font-size:medium;
+  display:inline-block;
+}
+
+footer i:hover {
+  text-decoration: underline;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .connect-link {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+footer {
+  background-color: #ac5625;
+  color: black;
+  font-family: "Karla", sans-serif;
+  min-height: 250px;
+}
+
+footer h2 {
+  color: black;
+}
+
+footer i::before {
+  margin-right: 5px;
+}
+
+footer h4 {
+  font-weight: 400;
+  color: black;
+}
+
+.navbar-group {
+  height: 150px;
+}
+
+footer img {
+  margin: auto;
+  display:block;
+}
+
+.mx-6 {
+  margin: 0 6em;
+}
+
+.navbar-brand-small {
+  display: none;
+}
+
+.current_page {
+  text-decoration: underline !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-brand {
+    display: none;
+  }
+
+  .navbar-brand-small {
+    display: inline-block;
+    height: 60px;
+  }
+
+  .navbar-brand-small img {
+    height: 60px;
+  }
+}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container px-4">
+        <div class="row mb-3 head-text-row">
+            <h1 class="home-header-text">HI, I'M <i class="name">CHELSIE</i>.</h1>
+            <h4>I'm a data scientist who loves biology and exploring new tools and techniques for analyzing data.</h4>
+        </div>
+        <div class="row home-header mx-auto gy-2 row-cols-lg-3 row-cols-md-1 row-cols-sm-1 row-cols-xs-1">
+            <div class="col gx-4">
+                <div class="trait-card color-orange position-relative">
+                    <img src="{% static 'images/right.png' %}">
+                    <div class="m-5 text-top-right">
+                        <h3>DATA</h3>
+                        <h3>DRIVEN</h3>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col gx-4">
+                <div class="trait-card color-gray position-relative">
+                    <img src="{% static 'images/up.png' %}">
+                    <div class="text-top-middle mt-5">
+                        <h3>BIOLOGY ENTHUSIAST</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="trait-card color-tan position-relative">
+                    <img src="{% static 'images/left.png' %}">
+                    <div class="text-top-left m-4 mt-5">
+                        <h3>ALWAYS</h3>
+                        <h3>LEARNING</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

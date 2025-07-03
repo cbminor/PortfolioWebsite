@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css\blog.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="container">
+    <!-- <div class="intro text-center">
+        <h1>{{ page.heading }}</h1>
+        <p>{{ page.intro }}</p>
+    </div> -->
+    <hr>
+    {% for article in articles %}
+        <div class="row g-0 position-relative">
+            <div class="col-md-5 mb-md-0 p-md-3">
+                {% image article.article_image original class="w-100 h-auto" %}
+            </div>
+            <div class="col-md-7 p-4">
+                <h3 class="mt-0">{{ article.article_title }}</h3>
+                <p>{{ article.article_summary }}</p>
+                <a href="{{ article.get_url }}">READ MORE</a>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

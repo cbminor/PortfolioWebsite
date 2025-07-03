@@ -1,0 +1,36 @@
+{% load wagtailcore_tags navigation_tags %}
+{% load static %}
+
+<header>
+    {% get_site_root as site_root %}
+    
+    <nav class="navbar navbar-expand-lg mt-0">
+        <div class="container-fluid">
+            <a class="navbar-brand-small" href="{% pageurl site_root %}">
+                <img src="{% static 'images/C.png' %}">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarIcon" aria-controls="NavbarIcon" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-group" id="NavbarIcon">
+                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-evenly d-flex w-100 align-items-center">
+                    <li class="nav-item">
+                        <a href="{{ BASE_DIR }}/about" class="{% if page.slug == 'about' %}current_page{% endif %}">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ BASE_DIR }}/portfolio" class="{% if page.slug == 'portfolio' %}current_page{% endif %}">PORTFOLIO</a>
+                    </li>
+                    <a class="navbar-brand" href="{% pageurl site_root %}">
+                        <img src="{% static 'images/C.png' %}" height="150">
+                    </a>
+                    <li class="nav-item">
+                        <a href="{{ BASE_DIR }}/blog" class="{% if page.slug == 'blog' %}current_page{% endif %}">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ BASE_DIR }}/contact" class="{% if page.slug == 'contact' %}current_page{% endif %}">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,70 @@
+.link i {
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.link i::before {
+    margin-right: 5px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.link {
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.form-group label {
+    display: block;
+    margin-top: 5px;
+}
+
+.form-group :is(input, select, textarea) {
+    width: 98%;
+    max-width: 600px;
+    min-height: 30px;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    width: auto;
+
+}
+
+.form-group .helptext {
+    font-style: italic;
+}
+
+textarea {
+    height: 200px;
+}
+
+.inline {
+    display: inline-block;
+    width: 49%;
+}
+
+img {
+    border-radius: 50px;
+    margin: auto;
+    display: block;
+}
+
+.submit-btn {
+    width: 98%;
+}
+
+.thank-you {
+    height: 450px;
+    display: flex;
+}
+
+.mw-300 {
+    min-width: 300px;
+}
