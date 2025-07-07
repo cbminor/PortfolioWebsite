@@ -1,6 +1,6 @@
 from django.db import models
 
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.admin.panels import PageChooserPanel
 
@@ -9,6 +9,14 @@ LINK_TYPES = [
     ('GitHub', 'GitHub'),
     ('Kaggle', 'Kaggle'),
     ('Tableau', 'Tableau')
+]
+
+CARD_COLORS = [
+    ("Orange", "#ac5625"),
+    ("Beige", "#b48351"),
+    ("Tan", "#b5aba6"),
+    ("Brown", "#483a2b"),
+    ("Gray", "#666666")
 ]
 
 @register_snippet

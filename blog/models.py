@@ -6,6 +6,7 @@ from wagtail.fields import StreamField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageBlock
+from home.blocks import CustomImageBlock
 
 class ArticleList(Page):
 
@@ -61,7 +62,7 @@ class BlogEntry(Page):
     
     article_text = StreamField([
         ('text', blocks.RichTextBlock()),
-        ('image', ImageBlock()),
+        ('image', CustomImageBlock()),
         ('image_left', blocks.StructBlock([
              ('image_left', ImageBlock()),
              ('text_right', blocks.RichTextBlock())

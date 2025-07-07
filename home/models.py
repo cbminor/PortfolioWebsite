@@ -17,6 +17,7 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 from wagtail.api import APIField
+from home.blocks import ThreeCardDisplayBlock, CustomImageBlock
 
 STYLE_TYPES = [
     ("Inline", "Inline"),
@@ -56,20 +57,11 @@ class HomePage(Page):
           help_text="Add a subtitle to the front page"
     )
 
-    intro = models.CharField(
-        blank=True,
-        max_length=450,
-        help_text="Add an intro to the website"
-        )
+    content = StreamField([
+        ("ThreeCardPanel", ThreeCardDisplayBlock())
+    ], blank=True)
 
-    image = models.ForeignKey(
-        "wagtailimages.Image",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-        help_text="Introduction Image"
-    )
+
     subpage_types = [
         'home.AboutPage', 'home.Portfolio', 'blog.ArticleList', 'home.ContactPage'
     ]
@@ -77,7 +69,9 @@ class HomePage(Page):
     parent_page_type = []
 
     
-    content_panels = Page.content_panels + [FieldPanel("home_title"), FieldPanel("home_subtitle"), "intro", FieldPanel("image")]
+    content_panels = Page.content_panels + [FieldPanel("home_title"), 
+                                            FieldPanel("home_subtitle"),
+                                            FieldPanel("content")]
 
 
 class ProjectList(Orderable, models.Model):
@@ -118,14 +112,14 @@ class Portfolio(Page):
 class AboutPage(Page):
 
     about_text = StreamField([
-        ('text', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'image', 'embed', 'code', 'blockquote'])),
-        ('image', ImageBlock()),
+        ('text', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote'])),
+        ('image', CustomImageBlock()),
         ('image_left', blocks.StructBlock([
              ('image_left', ImageBlock()),
-             ('text_right', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'image', 'embed', 'code', 'blockquote']))
+             ('text_right', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote']))
          ])),
         ('image_right', blocks.StructBlock([
-             ('text_left', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'image', 'embed', 'code', 'blockquote'])),
+             ('text_left', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote'])),
              ('image_right', ImageBlock())
          ]))
     ])

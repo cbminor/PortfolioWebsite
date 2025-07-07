@@ -13,19 +13,19 @@
         {% for block in page.article_text %}
             {% if block.block_type == 'image_left' %}
                 <div class="row">
-                    <div class="column">
+                    <div class="col">
                         {% image block.value.image_left width-400 %}
                     </div>
-                    <div class="column">
+                    <div class="col">
                         {{ block.value.text_right|richtext }}
                     </div>
                 </div>
             {% elif block.block_type == 'image_right' %}
                 <div class="row">
-                    <div class="column">
+                    <div class="col">
                         {{ block.value.text_left|richtext }}
                     </div>
-                    <div class="column">
+                    <div class="col">
                         {% image block.value.image_right width-400 %}
                     </div>
                 </div>

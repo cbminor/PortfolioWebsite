@@ -4,6 +4,12 @@
     float: left;
 }
 
+.home-page {
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+}
+
 .round-image {
     border-radius: 25px;
 }
@@ -53,10 +59,11 @@
     align-content: end;
     position: relative;
     font-family: "Quicksand", sans-serif;
+    text-align: center;
 }
 
 .trait-card h3{
-    font-size: 2.4rem;
+    font-size: 2.3vw;
     font-weight: 200;
 }
 
@@ -73,7 +80,8 @@
     right: 0;
     top: 0;
     position: absolute;
-    margin: 3rem;
+    margin: 2.5vw;
+    width: 50% !important;
 }
 
 .text-top-middle {
@@ -81,7 +89,7 @@
     width: 100%;
     text-align: center;
     position: absolute;
-    margin-top: 3rem;
+    margin-top: 2.5vw;
     padding: 1.5rem;
 }
 
@@ -89,10 +97,19 @@
     left: 0;
     top: 0;
     position: absolute;
-    margin: 3rem;
+    margin: 3vw 1.2vw;
+    width: 50% !important;
 }
 
 @media (max-width: 992px) {
+    .home-page {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
     .home-header {
         width: 100%;
         height: auto;
@@ -103,6 +120,7 @@
         width: 100%;
         height: 100px;
         position: absolute;
+        text-align: left;
     }
 
     .trait-card img {
@@ -119,6 +137,7 @@
         margin: auto !important;
         text-align: left;
         padding-left: 1rem;
+        width: 100% !important;
     }
 
     .text-top-middle {
@@ -141,6 +160,7 @@
         margin: auto !important;
         text-align: left;
         padding-left: 1rem;
+        width: 100% !important;
 
     }
 

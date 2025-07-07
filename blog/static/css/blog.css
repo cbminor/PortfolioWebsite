@@ -45,3 +45,19 @@ hr {
 a {
     color: black;
 }
+
+article img {
+    max-width: 70vw;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    .content {
+        width: 90% !important;
+    }
+
+    article img {
+        max-width: 90vw;
+        height: auto;
+    }
+}

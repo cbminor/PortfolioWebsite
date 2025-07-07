@@ -1,0 +1,6 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="{{ value.alignment }}">
+    {% image value.image max-500x500 %}
+</div>
