@@ -78,6 +78,8 @@ TEMPLATES = [
     },
 ]
 
+CSRF_COOKIE_SECURE=False
+
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
 
