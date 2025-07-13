@@ -174,3 +174,5 @@ SESSION_COOKIE_SECURE = True  # If using HTTPS
 CSRF_COOKIE_SECURE = True     # Same
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_SAMESITE = "Lax"
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+
