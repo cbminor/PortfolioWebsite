@@ -37,8 +37,12 @@ STORAGES = {
             "secret_key": os.getenv("MEDIA_SECRET_KEY")
 
         }
-    }
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+    },
 }
+
 
 MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com"
 
