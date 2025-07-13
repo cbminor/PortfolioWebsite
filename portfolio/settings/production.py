@@ -3,7 +3,7 @@ from .base import *
 from django.core.management.utils import get_random_secret_key
 
 
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
@@ -33,7 +33,7 @@ STORAGES = {
         "OPTIONS": {
             "region_name": "nyc3",
             "endpoint_url": "https://nyc3.digitaloceanspaces.com",
-            "bucket_name": "porfolio-media",
+            "bucket_name": "porfolio-website-media",
             "access_key": os.getenv("MEDIA_ACCESS_KEY"),
             "secret_key": os.getenv("MEDIA_SECRET_KEY")
         }
@@ -45,6 +45,24 @@ STORAGES = {
 
 
 MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com/media/"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+}
+
+MIDDLEWARE += ["django.middleware.common.BrokenLinkEmailsMiddleware"]
+
+ADMINS = [("Chelsie", "chelsieminor@gmail.com")]
 
 try:
     from .local import *
