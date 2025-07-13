@@ -32,7 +32,7 @@ STORAGES = {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
             "region_name": "nyc3",
-            "endpoint_url": "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com",
+            "endpoint_url": "https://nyc3.cdn.digitaloceanspaces.com",
             "access_key": "portfolio-media",
             "secret_key": os.getenv("MEDIA_SECRET_KEY")
 
@@ -44,7 +44,7 @@ STORAGES = {
 }
 
 
-MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com"
+MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com/media/"
 
 try:
     from .local import *
