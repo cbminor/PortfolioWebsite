@@ -33,7 +33,7 @@ STORAGES = {
         "OPTIONS": {
             "region_name": "nyc3",
             "endpoint_url": "https://nyc3.digitaloceanspaces.com",
-            "bucket_name": "porfolio-website-media",
+            "bucket_name": "portfolio-website-media",
             "access_key": os.getenv("MEDIA_ACCESS_KEY"),
             "secret_key": os.getenv("MEDIA_SECRET_KEY")
         }
@@ -43,6 +43,13 @@ STORAGES = {
     },
 }
 
+AWS_ACCESS_KEY_ID = os.getenv("MEDIA_ACCESS_KEY")
+AWS_SECRET_ACCESS_KEY = os.getenv("MEDIA_SECRET_KEY")
+AWS_STORAGE_BUCKET_NAME = "portfolio-website-media"
+AWS_S3_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
+AWS_S3_REGION_NAME = "nyc3"
+AWS_S3_ADDRESSING_STYLE = "virtual"
+AWS_DEFAULT_ACL = None  # Important to avoid access denied
 
 MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com/media/"
 
