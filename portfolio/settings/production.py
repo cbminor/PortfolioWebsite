@@ -29,13 +29,13 @@ DATABASES = {
 
 STORAGES = {
     "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
+        "BACKEND": "storages.backends.s3.S3Boto3Storage",
         "OPTIONS": {
             "region_name": "nyc3",
-            "endpoint_url": "https://nyc3.cdn.digitaloceanspaces.com",
-            "access_key": "portfolio-media",
+            "endpoint_url": "https://nyc3.digitaloceanspaces.com",
+            "bucket_name": "porfolio-media",
+            "access_key": os.getenv("MEDIA_ACCESS_KEY"),
             "secret_key": os.getenv("MEDIA_SECRET_KEY")
-
         }
     },
     "staticfiles": {
