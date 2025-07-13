@@ -3,7 +3,7 @@ from .base import *
 from django.core.management.utils import get_random_secret_key
 
 
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
@@ -24,8 +24,23 @@ DATABASES = {
         "OPTIONS": {
             "sslmode": "require",
         }
+    } 
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "region_name": "nyc3",
+            "endpoint_url": "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com",
+            "access_key": "portfolio-media",
+            "secret_key": os.getenv("MEDIA_SECRET_KEY")
+
+        }
     }
 }
+
+MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com"
 
 try:
     from .local import *
