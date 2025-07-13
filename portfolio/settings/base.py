@@ -169,3 +169,8 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'txt', 'xlsx', 'zip']
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+SESSION_COOKIE_SECURE = True  # If using HTTPS
+CSRF_COOKIE_SECURE = True     # Same
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_COOKIE_SAMESITE = "Lax"
