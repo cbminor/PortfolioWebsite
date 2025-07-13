@@ -46,6 +46,9 @@ STORAGES = {
 
 MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com/media/"
 
+STATIC_URL = "/assets/"
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

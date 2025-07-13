@@ -33,6 +33,8 @@ STORAGES = {
     },
 }
 
+STATIC_URL = "/static/"
+
 
 try:
     from .local import *
