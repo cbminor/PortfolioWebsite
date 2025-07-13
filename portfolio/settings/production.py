@@ -46,8 +46,9 @@ STORAGES = {
 
 MEDIA_URL = "https://portfolio-website-media.nyc3.cdn.digitaloceanspaces.com/media/"
 
-STATIC_URL = "/app/assets/"
+STATIC_URL = "/assets/"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 LOGGING = {
     "version": 1,
