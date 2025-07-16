@@ -16,6 +16,11 @@ IMAGE_ALIGNMENT = [
     ("text-end", "right")
 ]
 
+TEXT_COLORS = [
+    ("white", "White"),
+    ("black", "Black")
+]
+
 class ThreeCardDisplayBlock(blocks.StructBlock):
     """ A StructBlock for rendering a Three Card Home page display """
 
@@ -44,6 +49,7 @@ class CustomImageBlock(blocks.StructBlock):
 
     image = ImageBlock(required=True)
     alignment = blocks.ChoiceBlock(choices=IMAGE_ALIGNMENT, default="center")
+    photo_description = blocks.CharBlock(required=False, max_length=150)
 
     class Meta:
         icon = "card-image"

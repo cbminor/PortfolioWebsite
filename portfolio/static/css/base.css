@@ -108,6 +108,10 @@ footer img {
   text-underline-offset: 8px;
 }
 
+.image-description {
+  font-size: 12px;
+}
+
 @media (max-width: 992px) {
   .navbar-brand {
     display: none;

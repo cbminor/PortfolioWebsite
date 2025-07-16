@@ -1,6 +1,11 @@
 {% load static %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="{{ value.alignment }}">
+<div class="{{ value.alignment }} position-relative">
     {% image value.image max-500x500 %}
+    {% if value.photo_description %}
+    <div class="image-description">
+        <p>{{ value.photo_description }}</p>
+    </div>
+    {% endif %}
 </div>
