@@ -21,6 +21,16 @@ TEXT_COLORS = [
     ("black", "Black")
 ]
 
+IMAGE_WIDTH = [
+    ("w-50", "50%"),
+    ("w-60", "60%"),
+    ("w-70", "70%"),
+    ("w-75", "75%"),
+    ("w-80", "80%"),
+    ("w-90", "90%"),
+    ("w-100", "100%")
+]
+
 class ThreeCardDisplayBlock(blocks.StructBlock):
     """ A StructBlock for rendering a Three Card Home page display """
 
@@ -50,6 +60,7 @@ class CustomImageBlock(blocks.StructBlock):
     image = ImageBlock(required=True)
     alignment = blocks.ChoiceBlock(choices=IMAGE_ALIGNMENT, default="center")
     photo_description = blocks.CharBlock(required=False, max_length=150)
+    image_width = blocks.ChoiceBlock(choices=IMAGE_WIDTH, default="100%")
 
     class Meta:
         icon = "card-image"
