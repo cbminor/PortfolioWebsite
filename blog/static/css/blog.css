@@ -51,6 +51,23 @@ article img {
     height: auto;
 }
 
+.blog-nav {
+    color: darkgray;
+    text-decoration: none;
+}
+
+.blog-nav-text {
+    font-size: 1.2rem;
+}
+
+.blog-nav-icon {
+    font-size: 3rem;
+}
+
+.blog-nav:hover {
+    color: black;
+}
+
 @media (max-width: 992px) {
     .content {
         width: 90% !important;

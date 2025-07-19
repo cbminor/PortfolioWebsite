@@ -31,7 +31,7 @@ class ArticleList(Page):
         context = super().get_context(request, *args, **kwargs)
 
         # Add extra variables and return the updated context
-        context['articles'] = BlogEntry.objects.child_of(self).live()
+        context['articles'] = BlogEntry.objects.child_of(self).live().order_by("-first_published_at")
         return context
     
     content_panels = Page.content_panels + ["heading", "intro"]
@@ -80,3 +80,11 @@ class BlogEntry(Page):
     parent_page_type = [
         'blog.ArticleList' 
     ]
+
+    def get_context(self, request, *args, **kwargs):
+
+        context = super().get_context(request, *args, **kwargs)
+        # Add extra variables and return the updated context
+        context["next_article"] = BlogEntry.objects.live().filter(first_published_at__lt=self.first_published_at).order_by("first_published_at").last()
+        context["previous_article"] = BlogEntry.objects.live().filter(first_published_at__gt=self.first_published_at).order_by("first_published_at").first()
+        return context
