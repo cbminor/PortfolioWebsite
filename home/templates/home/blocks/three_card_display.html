@@ -9,17 +9,21 @@
     <div class="col gx-4">
         <div class="trait-card position-relative" style="background-color: {{ value.left_card_color }};">
             {% image value.left_card_image scale-100 as img %} 
-            <img src="{{ img.url }}">
-            <div class="text-top-right">
+            <span>
+                <img src="{{ img.url }}">
+            </span>
+            <span class="text-top-right">
                 <h3>{{ value.left_card_text }}</h3>
-            </div>
+            </span>
 
         </div>
     </div>
     <div class="col gx-4">
         <div class="trait-card position-relative" style="background-color: {{ value.center_card_color }};">
-            {% image value.center_card_image scale-100 as img %} 
-            <img src="{{ img.url }}">
+            {% image value.center_card_image scale-100 as img %}
+            <div class="inline-mobile">
+                <img src="{{ img.url }}">
+            </div>
             <div class="text-top-middle">
                 <h3>{{ value.center_card_text }}</h3>
             </div>
@@ -28,10 +32,12 @@
     <div class="col">
         <div class="trait-card color-tan position-relative" style="background-color: {{ value.right_card_color }}">
             {% image value.right_card_image scale-100 as img %} 
-            <img src="{{ img.url }}">
-            <div class="text-top-left">
+            <span>
+                <img src="{{ img.url }}">
+            </span>
+            <span class="text-top-left">
                 <h3>{{ value.right_card_text }}</h3>
-            </div>
+            </span>
         </div>
     </div>
 </div>
