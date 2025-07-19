@@ -50,10 +50,12 @@ textarea {
     width: 49%;
 }
 
-img {
+.content img {
     border-radius: 50px;
     margin: auto;
     display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .submit-btn {
@@ -67,4 +69,12 @@ img {
 
 .mw-300 {
     min-width: 300px;
+}
+
+@media (max-width: 576px) {
+    .content img {
+        min-width: 300px;
+        width: 100%;
+        height: auto;
+    }
 }
