@@ -1,4 +1,4 @@
-{% load static %}
+{% load static navigation_tags wagtailcore_tags %}
 
 <footer class="mt-3 align-content-center">
     <div class="row gy-0 p-4 w-100 mx-8">
@@ -7,7 +7,8 @@
                 <div class="col">
                     <div>
                         <h4>ABOUT</h4>
-                        <a href="{{ BASE_DIR }}">Home</a>
+                        {% get_site_root as site_root %}
+                        <a href="{% pageurl site_root %}">Home</a>
                         <br>
                         <a href="{{ BASE_DIR }}/about">About</a>
                         <br>

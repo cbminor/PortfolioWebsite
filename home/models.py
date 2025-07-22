@@ -17,7 +17,7 @@ from wagtail.contrib.settings.models import (
     register_setting,
 )
 from wagtail.api import APIField
-from home.blocks import ThreeCardDisplayBlock, CustomImageBlock
+from home.blocks import ThreeCardDisplayBlock, CustomImageBlock, InlineImageTextBlock
 
 STYLE_TYPES = [
     ("Inline", "Inline"),
@@ -113,7 +113,7 @@ class AboutPage(Page):
 
     about_text = StreamField([
         ('text', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote'])),
-        ('image', CustomImageBlock()),
+        ('image', ImageBlock()),
         ('image_left', blocks.StructBlock([
              ('image_left', ImageBlock()),
              ('text_right', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote']))
@@ -121,7 +121,8 @@ class AboutPage(Page):
         ('image_right', blocks.StructBlock([
              ('text_left', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed', 'code', 'blockquote'])),
              ('image_right', ImageBlock())
-         ]))
+         ])),
+         ('image_text', InlineImageTextBlock())
     ])
 
     content_panels = Page.content_panels + [FieldPanel("about_text")]

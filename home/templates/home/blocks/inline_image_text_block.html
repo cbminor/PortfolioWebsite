@@ -1,0 +1,25 @@
+{% load wagtailcore_tags static wagtailimages_tags %}
+
+<div class="container">
+    <div class="row">
+        {% if value.placement == 'right' %}
+        <div class="col">
+            {{ value.text }}
+        </div>
+        {% endif %}
+        <div class="col {{ value.image_col_width }}">
+            {% image value.image scale-100 as img %} 
+            <img src="{{ img.url }}" class="{{ value.image_corners }} w-100">
+            {% if value.photo_description %}
+            <div class="image-description">
+                <p>{{ value.photo_description }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% if value.placement == 'left' %}
+        <div class="col">
+            {{ value.text }}
+        </div>
+        {% endif %}
+    </div>
+</div>

@@ -3,7 +3,7 @@
 
 <div class="{{ value.alignment }} position-relative">
     {% image value.image scale-100 as img %} 
-    <img src="{{ img.url }}" class="{{ value.image_width }}">
+    <img src="{{ img.url }}" class="{{ value.image_width }} {{ value.image_corners }}">
     {% if value.photo_description %}
     <div class="image-description">
         <p>{{ value.photo_description }}</p>

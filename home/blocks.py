@@ -16,6 +16,19 @@ IMAGE_ALIGNMENT = [
     ("text-end", "right")
 ]
 
+IMAGE_PLACEMENT = [
+    ("left", "left"),
+    ("right", "right")
+]
+
+IMAGE_COL_WIDTH = [
+    ("col-3", "25%"),
+    ("col-4", "33%"),
+    ("col-6", "50%"),
+    ("col-8", "66%"),
+    ("col-9", "75%")
+]
+
 TEXT_COLORS = [
     ("white", "White"),
     ("black", "Black")
@@ -29,6 +42,14 @@ IMAGE_WIDTH = [
     ("w-80", "80%"),
     ("w-90", "90%"),
     ("w-100", "100%")
+]
+
+IMAGE_CORNERS = [
+    ("rounded-0", "Sharp"),
+    ("rounded-2", "Slightly Round"),
+    ("rounded-4", "Medium Round"),
+    ("rounded-5", "Very Round"),
+    ("rounded-circle", "Circle")
 ]
 
 class ThreeCardDisplayBlock(blocks.StructBlock):
@@ -61,7 +82,23 @@ class CustomImageBlock(blocks.StructBlock):
     alignment = blocks.ChoiceBlock(choices=IMAGE_ALIGNMENT, default="center")
     photo_description = blocks.CharBlock(required=False, max_length=150)
     image_width = blocks.ChoiceBlock(choices=IMAGE_WIDTH, default="100%")
+    image_corners = blocks.ChoiceBlock(choices=IMAGE_CORNERS, default="Sharp")
 
     class Meta:
         icon = "card-image"
         template = "home/blocks/image_block.html"
+
+
+class InlineImageTextBlock(blocks.StructBlock):
+    """ A block to display text inline with an image """
+    
+    image = ImageBlock()
+    text = blocks.RichTextBlock()
+    placement = blocks.ChoiceBlock(choices=IMAGE_PLACEMENT, default="left")
+    image_col_width = blocks.ChoiceBlock(choices=IMAGE_COL_WIDTH, default="50%")
+    image_corners = blocks.ChoiceBlock(choices=IMAGE_CORNERS, default="Sharp")
+    photo_description = blocks.CharBlock(required=False, max_length=150)
+
+    class Meta:
+        icon = "card-image"
+        template = "home/blocks/inline_image_text_block.html"
