@@ -12,7 +12,7 @@
     <div class="home-page">
         <div class="row mb-3 head-text-row">
             <h1 class="home-header-text">HI, I'M <i class="name">CHELSIE</i>.</h1>
-            <h4>I'm a data scientist who loves biology and exploring new tools and techniques for analyzing data.</h4>
+            <h4>{{ page.home_subtitle }}</h4>
         </div>
         {% for block in page.content %}
         {% include_block block %}
