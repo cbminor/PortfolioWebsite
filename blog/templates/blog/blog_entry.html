@@ -9,7 +9,8 @@
 {% block content %}
     <article>
         <h1 class="text-center">{{ page.article_title }}</h1>
-        <i class="text-center">{{ page.latest_revision_created_at }}</i>
+        <!-- <i class="text-center">{{ page.latest_revision_created_at }}</i> -->
+        <i class="text-center">{{ page.first_published_at|date:"d F Y" }}</i>
         {% for block in page.article_text %}
             {% if block.block_type == 'image_left' %}
                 <div class="row">
