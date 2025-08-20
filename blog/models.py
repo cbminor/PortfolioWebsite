@@ -6,7 +6,7 @@ from wagtail.fields import StreamField
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageBlock
-from home.blocks import CustomImageBlock
+from home.blocks import CustomImageBlock, TwoColumnTextBlock
 
 class ArticleList(Page):
 
@@ -70,7 +70,8 @@ class BlogEntry(Page):
         ('image_right', blocks.StructBlock([
              ('text_left', blocks.RichTextBlock()),
              ('image_right', ImageBlock())
-         ]))
+         ])),
+         ('two_columns', TwoColumnTextBlock())
     ])
 
     content_panels = Page.content_panels + ["article_title", "article_summary", "article_image", FieldPanel("article_text")]

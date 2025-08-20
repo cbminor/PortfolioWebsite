@@ -102,3 +102,13 @@ class InlineImageTextBlock(blocks.StructBlock):
     class Meta:
         icon = "card-image"
         template = "home/blocks/inline_image_text_block.html"
+
+class TwoColumnTextBlock(blocks.StructBlock):
+    """ Creates a block with two column content """
+
+    text_block_left = blocks.RichTextBlock(features=['h2','h3','h4', 'bold', 'italic', 'underline', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed'])
+    text_block_right = blocks.RichTextBlock(features=['h2','h3','h4', 'bold', 'italic', 'underline', 'ol', 'ul', 'hr', 'link', 'document-link', 'embed'])
+
+    class Meta:
+        icon = "card-image"
+        template = "home/blocks/two_column_text_block.html"
