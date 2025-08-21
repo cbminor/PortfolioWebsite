@@ -68,6 +68,26 @@ article img {
     color: black;
 }
 
+.blog-page-link {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    align-content: center;
+    color: black;
+    margin: 1rem;
+}
+
+.blog-page-link:hover {
+    background-color: #b5aba6;
+    border-color: #a29995;
+    color: black;
+}
+
+.active .blog-page-link {
+    background-color: #b48351;
+    border-color: #b48351;
+}
+
 @media (max-width: 992px) {
     .content {
         width: 90% !important;
