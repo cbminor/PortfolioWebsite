@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from wagtail.models import Page
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
@@ -30,8 +30,16 @@ class ArticleList(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        # Add extra variables and return the updated context
-        context['articles'] = BlogEntry.objects.child_of(self).live().order_by("-first_published_at")
+        all_articles = BlogEntry.objects.child_of(self).live().order_by("-first_published_at")
+        paginator = Paginator(all_articles, 5)
+        page = request.GET.get("page")
+        try:
+            articles = paginator.page(page)
+        except PageNotAnInteger:
+            articles = paginator.page(1)
+        except EmptyPage:
+            articles = paginator.page(paginator.num_pages)
+        context['articles'] = articles
         return context
     
     content_panels = Page.content_panels + ["heading", "intro"]
